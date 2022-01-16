@@ -78,6 +78,7 @@ export class AWSS3ProviderManagedUpload {
 		this.totalBytesToUpload = this.byteLength(this.body);
 		if (this.totalBytesToUpload <= this.minPartSize) {
 			// Multipart upload is not required. Upload the sanitized body as is
+			console.log('Hello, this is upload');
 			this.params.Body = this.body;
 			const putObjectCommand = new PutObjectCommand(this.params);
 			return this.s3client.send(putObjectCommand);
